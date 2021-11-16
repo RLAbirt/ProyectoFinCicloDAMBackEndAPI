@@ -1,5 +1,9 @@
 package com.birt.berton.BertonRestAPI_PROY_1C.services;
 
-public interface HotelService {
+import java.util.List;
 
+import com.birt.berton.BertonRestAPI_PROY_1C.models.Hotel;
+
+public interface HotelService {
+	List<Hotel> findAll();	
 }
