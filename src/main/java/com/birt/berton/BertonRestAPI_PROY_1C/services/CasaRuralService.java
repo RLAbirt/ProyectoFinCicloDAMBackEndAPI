@@ -6,4 +6,5 @@ import com.birt.berton.BertonRestAPI_PROY_1C.models.CasaRural;
 
 public interface CasaRuralService {
 	List<CasaRural> findAll();	
+	List<CasaRural> findByPropertiesLodgingtype(String type);
 }

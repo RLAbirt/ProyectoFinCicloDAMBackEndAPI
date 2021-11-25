@@ -19,4 +19,9 @@ public class CasaRuralServiceImpl implements CasaRuralService {
 	public List<CasaRural> findAll() {
 		return casasRuralesRepository.findAll();
 	}
+
+	@Override
+	public List<CasaRural> findByPropertiesLodgingtype(String type) {
+		return casasRuralesRepository.findByPropertiesLodgingtype(type);
+	}
 }

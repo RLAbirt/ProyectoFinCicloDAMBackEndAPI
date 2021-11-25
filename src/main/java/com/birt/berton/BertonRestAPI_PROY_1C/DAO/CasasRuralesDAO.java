@@ -9,4 +9,5 @@ import com.birt.berton.BertonRestAPI_PROY_1C.models.Hotel;
 
 public interface CasasRuralesDAO extends MongoRepository<CasaRural,Integer> {
 	List<CasaRural> findAll();
+	List<CasaRural> findByPropertiesLodgingtype(String type);
 }
