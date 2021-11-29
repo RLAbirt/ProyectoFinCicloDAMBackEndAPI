@@ -20,4 +20,10 @@ public class RestauranteServiceImpl implements RestauranteService {
 		return restaurantesRepository.findAll();
 	}
 
+
+	@Override
+	public List<Restaurante> findByLocation(Double lon, Double lat, Double dist) {
+		return restaurantesRepository.findByLocation(lon, lat, dist);
+	}
+
 }

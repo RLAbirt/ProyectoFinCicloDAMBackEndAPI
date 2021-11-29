@@ -31,4 +31,13 @@ public class CasasRuralesController {
 		return new ResponseEntity<List<CasaRural>>(casaRuralService.findByPropertiesLodgingtype(type), HttpStatus.OK);
 	}
 	
+	@GetMapping(value="/casasrurales/geo", params={"lon", "lat", "dist", "type"})
+	public ResponseEntity<List<CasaRural>> getByLodgingtypeAndLocation(
+			@RequestParam("lon") Double lon, @RequestParam("lat") Double lat, @RequestParam("dist") Integer dist, @RequestParam("type") String type ) {
+		
+		Double radius = dist / 6378.1;
+		return new ResponseEntity<List<CasaRural>>(casaRuralService.findByLodgingtypeAndLocation(lon, lat, radius, type), HttpStatus.OK);
+		
+	}
+	
 }
