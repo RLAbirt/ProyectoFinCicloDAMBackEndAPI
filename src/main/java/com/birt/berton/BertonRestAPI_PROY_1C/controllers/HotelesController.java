@@ -25,9 +25,9 @@ public class HotelesController {
 		return new ResponseEntity<List<Hotel>>(hotelService.findAll(), HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/hoteles/geo", params= {"lon", "lat"})
+	@GetMapping(value="/hoteles/geo", params= {"lon", "lat", "dist"})
 	public ResponseEntity<List<Hotel>> getHotelesByLocation(
-			@RequestParam("lon") Double lon, @RequestParam("lat") Double lat, @RequestParam("dist") Integer dist) {
+			@RequestParam("lon") Double lon, @RequestParam("lat") Double lat, @RequestParam("dist") Double dist) {
 		
 		Double radius = dist / 6378.1;
 		return new ResponseEntity<List<Hotel>>(hotelService.findByPositionNear(lon, lat, radius), HttpStatus.OK);

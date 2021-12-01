@@ -27,7 +27,7 @@ public class RestaurantesController {
 	
 	@GetMapping(value="restaurantes/geo", params={"lon", "lat", "dist"})
 	public ResponseEntity<List<Restaurante>> getRestaurantesByLocation(
-			@RequestParam("lon") Double lon, @RequestParam("lat") Double lat, @RequestParam("dist") Integer dist) {
+			@RequestParam("lon") Double lon, @RequestParam("lat") Double lat, @RequestParam("dist") Double dist) {
 		Double radius = dist / 6378.1;
 		return new ResponseEntity<List<Restaurante>>(restauranteService.findByLocation(lon, lat, radius), HttpStatus.OK);
 	}
