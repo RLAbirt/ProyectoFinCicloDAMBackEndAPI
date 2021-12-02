@@ -10,7 +10,8 @@
 	</parent>
 	<groupId>com.birt.berton</groupId>
 	<artifactId>BertonRestAPI_PROY_1C</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
 	<name>BertonRestAPI_PROY_1C</name>
 	<description>API Rest para la aplicación Berton.</description>
 	<properties>
@@ -69,6 +70,10 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-maven-plugin</artifactId>
+        	</plugin>
 		</plugins>
 	</build>
 
