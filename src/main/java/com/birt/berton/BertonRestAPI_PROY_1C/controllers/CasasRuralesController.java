@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.birt.berton.BertonRestAPI_PROY_1C.models.CasaRural;
-import com.birt.berton.BertonRestAPI_PROY_1C.models.Restaurante;
 import com.birt.berton.BertonRestAPI_PROY_1C.services.CasaRuralService;
 
 

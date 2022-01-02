@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.birt.berton.BertonRestAPI_PROY_1C.models.Hotel;
-import com.birt.berton.BertonRestAPI_PROY_1C.models.Properties;
 import com.birt.berton.BertonRestAPI_PROY_1C.services.HotelService;
 
 @RestController
