@@ -22,11 +22,29 @@ public class RestaurantesController {
 	@Autowired
 	private RestauranteService restauranteService;
 	
+	/**
+	 * Endpoint principal de restaurantes.
+	 * @return
+	 */
 	@GetMapping(value="/restaurantes")
 	public ResponseEntity<List<Restaurante>> getAllRestaurantes() {
-		return new ResponseEntity<List<Restaurante>>(restauranteService.findAll(), HttpStatus.OK);
+		
+		try {		
+			return new ResponseEntity<List<Restaurante>>(restauranteService.findAll(), HttpStatus.OK);
+		} catch (Exception e) {
+			
+			return new ResponseEntity<List<Restaurante>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
+	/**
+	 * Endpoint para consultar restaurantes por geolocalización. Calcula la distancia entre el usuario
+	 * y ordena la lista de menor a mayor distancia.
+	 * @param lon
+	 * @param lat
+	 * @param dist
+	 * @return
+	 */
 	@GetMapping(value="restaurantes/geo", params={"lon", "lat", "dist"})
 	public ResponseEntity<List<Restaurante>> getRestaurantesByLocation(
 			@RequestParam("lon") Double lon, @RequestParam("lat") Double lat, @RequestParam("dist") Double dist) {
@@ -45,7 +63,6 @@ public class RestaurantesController {
 
 				@Override
 				public int compare(Restaurante o1, Restaurante o2) {
-					// TODO Auto-generated method stub
 					return Double.compare(o1.getGeometry().getDistance(), o2.getGeometry().getDistance());
 				}
 				

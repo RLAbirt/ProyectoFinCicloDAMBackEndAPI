@@ -22,11 +22,28 @@ public class HotelesController {
 	@Autowired
 	private HotelService hotelService;
 	
+	/**
+	 * Endpoint principal de hoteles.
+	 * @return
+	 */
 	@GetMapping(value="/hoteles")
 	public ResponseEntity<List<Hotel>> getAllHoteles() {
-		return new ResponseEntity<List<Hotel>>(hotelService.findAll(), HttpStatus.OK);
+		try {
+			return new ResponseEntity<List<Hotel>>(hotelService.findAll(), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<List<Hotel>>( HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
+	/**
+	 * Endpoint para consultar hoteles por geolocalización. Calcula la distancia entre el usuario
+	 * y ordena la lista de menor a mayor distancia.
+	 * @param lon
+	 * @param lat
+	 * @param dist
+	 * @return
+	 */
 	@GetMapping(value="/hoteles/geo", params= {"lon", "lat", "dist"})
 	public ResponseEntity<List<Hotel>> getHotelesByLocation(
 			@RequestParam("lon") Double lon, @RequestParam("lat") Double lat, @RequestParam("dist") Double dist) {

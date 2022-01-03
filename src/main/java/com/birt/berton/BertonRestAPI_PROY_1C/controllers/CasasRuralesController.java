@@ -23,18 +23,47 @@ public class CasasRuralesController {
 	@Autowired
 	private CasaRuralService casaRuralService;
 	
+	/**
+	 * Endpoint principal de alojamientos.
+	 * @return
+	 */
 	@GetMapping(value="/casasrurales")
 	public ResponseEntity<List<CasaRural>> getAllCasasRurales() {
-		return new ResponseEntity<List<CasaRural>>(casaRuralService.findAll(), HttpStatus.OK);
+		try {
+			return new ResponseEntity<List<CasaRural>>(casaRuralService.findAll(), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<List<CasaRural>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
-	//Type -> "Agroturismos"
+	/**
+	 * Endpoint principal de casas rurales. Recibe un parámetro con el tipo de alojamiento
+	 * para limitarlos a Agroturismos.
+	 * @param type
+	 * @return
+	 */
+	
 	@GetMapping(value="/casasrurales", params="type")
 	public ResponseEntity<List<CasaRural>> getByPropertiesLodgingtype(@RequestParam("type") String type) {
-		return new ResponseEntity<List<CasaRural>>(casaRuralService.findByPropertiesLodgingtype(type), HttpStatus.OK);
+		try {
+			return new ResponseEntity<List<CasaRural>>(casaRuralService.findByPropertiesLodgingtype(type), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ResponseEntity<List<CasaRural>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
-	//Type -> "Agroturismos"
+	/**
+	 * Endpoint para consultar restaurantes por geolocalización. Calcula la distancia entre el usuario
+	 * y ordena la lista de menor a mayor distancia.
+	 * @param lon
+	 * @param lat
+	 * @param dist
+	 * @param type
+	 * @return
+	 */
 	@GetMapping(value="/casasrurales/geo", params={"lon", "lat", "dist", "type"})
 	public ResponseEntity<List<CasaRural>> getByLodgingtypeAndLocation(
 			@RequestParam("lon") Double lon, @RequestParam("lat") Double lat, @RequestParam("dist") Double dist, @RequestParam("type") String type ) {

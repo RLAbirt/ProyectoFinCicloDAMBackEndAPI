@@ -1,6 +1,5 @@
 package com.birt.berton.BertonRestAPI_PROY_1C.controllers;
 
-import java.net.http.HttpResponse;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,18 @@ public class OfertasController {
 	@Autowired
 	private OfertaService ofertaService;
 	
+	/**
+	 * Endpoint principal de ofertas.
+	 * @return
+	 */
 	@GetMapping(value="/ofertas")
 	public ResponseEntity<List<Oferta>> getAllOfertas() {
-		return new ResponseEntity<List<Oferta>>(ofertaService.findAll(), HttpStatus.OK);
+		try {
+			return new ResponseEntity<List<Oferta>>(ofertaService.findAll(), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<List<Oferta>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 }
