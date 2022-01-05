@@ -22,7 +22,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Document(collection="casasrurales")
 
-public class CasaRural extends Establecimiento{
+public class CasaRural extends Establecimiento {
 	
 	@JsonProperty("properties")
 	private Properties properties; 
