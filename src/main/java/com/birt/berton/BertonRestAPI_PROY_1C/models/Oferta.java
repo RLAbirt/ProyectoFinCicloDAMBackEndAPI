@@ -1,6 +1,5 @@
 package com.birt.berton.BertonRestAPI_PROY_1C.models;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
