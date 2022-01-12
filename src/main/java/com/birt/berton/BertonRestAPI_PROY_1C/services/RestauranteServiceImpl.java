@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.birt.berton.BertonRestAPI_PROY_1C.DAO.RestaurantesDAO;
 import com.birt.berton.BertonRestAPI_PROY_1C.models.Restaurante;
-
+/**
+ * Implementación de la interfaz del servicio Restaurante
+ */
 @Service
 public class RestauranteServiceImpl implements RestauranteService {
 	

@@ -15,7 +15,7 @@ public class SwaggerConfig {
 	
 	/**
 	 * Configurador de Swagger.
-	 * @return
+	 * 
 	 */
 	@Bean
 	public Docket api() {

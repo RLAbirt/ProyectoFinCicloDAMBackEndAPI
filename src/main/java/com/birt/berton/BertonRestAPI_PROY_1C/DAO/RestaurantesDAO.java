@@ -6,7 +6,10 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import com.birt.berton.BertonRestAPI_PROY_1C.models.Restaurante;
-
+/**
+ * Interfaz que define las consultas de Restaurantes
+ * 
+ */
 public interface RestaurantesDAO extends MongoRepository<Restaurante,Integer> {
 	
 	List<Restaurante> findAll();

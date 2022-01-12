@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.birt.berton.BertonRestAPI_PROY_1C.DAO.HotelesDAO;
 import com.birt.berton.BertonRestAPI_PROY_1C.models.Hotel;
-
+/**
+ * Implementación de la interfaz del servicio Hoteles
+ */
 @Service
 public class HotelServiceImpl implements HotelService {
 	@Autowired

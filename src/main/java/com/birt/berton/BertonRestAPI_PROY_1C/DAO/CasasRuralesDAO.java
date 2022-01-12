@@ -6,7 +6,10 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import com.birt.berton.BertonRestAPI_PROY_1C.models.CasaRural;
-
+/**
+ * Interfaz que define las consultas de CasasRurales
+ * 
+ */
 public interface CasasRuralesDAO extends MongoRepository<CasaRural,Integer> {
 	List<CasaRural> findAll();
 	

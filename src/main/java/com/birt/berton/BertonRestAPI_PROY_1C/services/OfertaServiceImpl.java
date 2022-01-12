@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.birt.berton.BertonRestAPI_PROY_1C.DAO.OfertasDAO;
 import com.birt.berton.BertonRestAPI_PROY_1C.models.Oferta;
-
+/**
+ * Implementación de la interfaz del servicio Oferta
+ */
 @Service
 public class OfertaServiceImpl implements OfertaService {
 	

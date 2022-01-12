@@ -9,7 +9,9 @@ import com.birt.berton.BertonRestAPI_PROY_1C.DAO.CasasRuralesDAO;
 
 import com.birt.berton.BertonRestAPI_PROY_1C.models.CasaRural;
 
-
+/**
+ * Implementación de la interfaz del servicio CasaRural
+ */
 @Service
 public class CasaRuralServiceImpl implements CasaRuralService {
 	@Autowired
