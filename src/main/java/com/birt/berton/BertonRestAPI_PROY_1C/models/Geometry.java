@@ -24,7 +24,7 @@ public class Geometry {
 	@JsonProperty("coordinates")
     public List<Double> coordinates;
 	
-    public double distance;
+    public Double distance;
 	
 	@JsonProperty("type")
     public String getType() {
